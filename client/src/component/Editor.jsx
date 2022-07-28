@@ -46,7 +46,6 @@ const Editor = () =>{
    
     useEffect(() =>{
        const quillServer = new Quill('#container', {theme: 'snow', modules:{toolbar:toolbarOptions}})
-        quillServer.disable();
         quillServer.setText('Loading the document...')
        setQuill(quillServer);
     },[]);
@@ -54,9 +53,9 @@ const Editor = () =>{
     useEffect(() =>{
       const socketServer = io(``);
       setSocket(socketServer)
-      return () => {
-        socketServer.disconnect();
-    } 
+    //   return () => {
+    //     socketServer.disconnect();
+    // } 
     },[])
 
     useEffect(() => {
